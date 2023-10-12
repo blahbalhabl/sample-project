@@ -2,33 +2,58 @@ import { useLocation, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../utils/icons";
 
-const Header = () => {
+const Header = ({ auth, setAuth }) => {
   const location = useLocation();
 
   return (
-    <div className=" border-b-2 flex justify-between items-center p-5">
+    <div className=" border-b-2 flex justify-between items-center p-2 px-20">
+      <div className="relative group m-2 p-2 text-xl text-blue-600 rounded-md hover:text-blue-700">
+        <Link to={ auth ? '/dashboard' : '/'} >
+          <FontAwesomeIcon icon={icons.home}/>
+        </Link>
+        <span className="opacity-0 group-hover:opacity-100 absolute top-2.5 left-20 transform -translate-x-1/2 bg-black text-sm text-white px-2 py-1 rounded-md transition-opacity duration-300">
+          { auth ? 'Dashboard' : 'Home' }
+        </span>
+      </div>
       <h1 className="text-2xl">
         DHVSU Medical Website
       </h1>
-      <ul className="flex flex-row p-2">
-        {location?.pathname !== "/" && (
-          <li className="m-2 p-2 text-xl text-blue-600">
+      {(!auth && location?.pathname !== "/auth/login") && (
+        <div className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700">
+          <Link to="/auth/login" >
+            <FontAwesomeIcon icon={icons.login} />
+          </Link>
+          <span className="opacity-0 group-hover:opacity-100 absolute top-2.5 right-5 transform -translate-x-1/2 bg-black text-sm text-white px-2 py-1 rounded-md transition-opacity duration-300">
+            Login
+          </span>
+        </div>
+      )}
+      { auth && (
+        <div className="flex h-full items-center"> 
+          <span>{ auth }</span>
+          <div
+            className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700"
+            onClick={() => setAuth(null)}
+            >
             <Link to="/" >
-              <FontAwesomeIcon icon={icons.home}/>
+              <FontAwesomeIcon icon={icons.logout} />
             </Link>
-          </li>
-        )}
-        {location?.pathname !== "/auth/login" && (
-          <li className="m-2 p-2 px-3 text-lg bg-blue-600 rounded-md text-white">
-            <Link to="/auth/login" >Login</Link>
-          </li>
-        )}
-        {location?.pathname !== "/auth/signup" && (
-          <li className="m-2 p-2 px-3 text-lg rounded-md text-blue-600 border-2 border-blue-600">
-            <Link to="/auth/signup" >Signup</Link>
-          </li>
-        )}
-      </ul>
+            <span className="opacity-0 group-hover:opacity-100 absolute top-2.5 right-5 transform -translate-x-1/2 bg-black text-sm text-white px-2 py-1 rounded-md transition-opacity duration-300">
+              Logout
+            </span>
+          </div>
+        </div>
+      )}
+      {location?.pathname === "/auth/login" && (
+        <div className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700">
+          <Link to="/contact-support" >
+            <FontAwesomeIcon icon={icons.support} />
+          </Link>
+          <span className="opacity-0 group-hover:opacity-100 absolute top-2.5 right-5 transform -translate-x-1/2 bg-black text-sm text-white px-2 py-1 rounded-md transition-opacity duration-300">
+            Support
+          </span>
+        </div>
+      )}
     </div>
   )
 }
