@@ -44,10 +44,12 @@ const LoginPage = ({ setAuth }) => {
     <div className="h-full">
       <div className="flex justify-center flex-col items-center bg-slate-200 h-full">
         <div className="flex items-center flex-col h-max w-1/4 p-5 rounded-lg bg-white text-">
-          <span className="text-xl text-yellow-300 font-bold">
+          <span className="text-xl text-yellow-300 font-extrabold">
             WELCOME BACK
           </span>
-          <span>LOGO HERE</span>
+          <span className="text-6xl text-blue-600 my-5">
+            <FontAwesomeIcon icon={icons.pills}/>
+          </span>
           <span className="text-2xl font-semibold">
             Sign In to Your Account
           </span>
@@ -95,7 +97,7 @@ const LoginPage = ({ setAuth }) => {
             <span className="text-blue-600 cursor-pointer hover:text-blue-700 underline decoration-dotted">Forgot Password?</span>
           </div>
           <button 
-            className="w-full p-2 m-2 my-10 rounded-xl text-lg text-blue-600 bg-yellow-300 border-solid border-2 border-blue-600 border-b-4 shadow-inner "
+            className="w-full p-2 m-2 my-10 rounded-xl text-lg text-blue-600 bg-yellow-300 border-solid border-2 border-blue-600 border-b-4 shadow-inner hover:bg-yellow-400"
             onClick={handleLogin}
           >
             <span className="mr-5 font-bold">

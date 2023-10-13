@@ -6,7 +6,7 @@ const Header = ({ auth, setAuth }) => {
   const location = useLocation();
 
   return (
-    <div className=" border-b-2 flex justify-between items-center p-2 px-20">
+    <div className="flex justify-between items-center p-2 px-20">
       <div className="relative group m-2 p-2 text-xl text-blue-600 rounded-md hover:text-blue-700">
         <Link to={ auth ? '/dashboard' : '/'} >
           <FontAwesomeIcon icon={icons.home}/>
@@ -15,9 +15,12 @@ const Header = ({ auth, setAuth }) => {
           { auth ? 'Dashboard' : 'Home' }
         </span>
       </div>
-      <h1 className="text-2xl">
-        DHVSU Medical Website
-      </h1>
+      <span className="flex justify-center items-center">
+        <FontAwesomeIcon className="text-3xl text-blue-600" icon={icons.pills}/>
+        <h1 className="text-2xl ml-5">
+          DHVSU Medical Website
+        </h1>
+      </span>
       {(!auth && location?.pathname !== "/auth/login") && (
         <div className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700">
           <Link to="/auth/login" >
