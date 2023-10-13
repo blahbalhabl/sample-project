@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../utils/icons";
 import Footer from "../components/Footer"
@@ -7,6 +7,8 @@ import Footer from "../components/Footer"
 const LoginPage = ({ setAuth }) => {
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from.pathname || '/dashboard';
   const [pass, setPass] = useState(false);
   const [remember, setRemember] = useState(
     JSON.parse(localStorage.getItem('remember')) || false
@@ -34,11 +36,13 @@ const LoginPage = ({ setAuth }) => {
       }
 
       setAuth(inputs.email);
-      navigate('/dashboard');
+      navigate(from, { replace: true });
     } else {
       alert('Please fill up all the fields');
     }
   };
+
+  console.log(from)
 
   return (
     <div className="h-full">

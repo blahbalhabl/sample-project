@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Modal from "../components/Modal"
 import { icons } from "../utils/icons"
 
-const Signup = ({ setAuth }) => {
-  const navigate = useNavigate(); 
+const Signup = () => {
+  const location = useLocation();
+  const from = location.state?.from.pathname || '/dashboard';
   const [pass, setPass] = useState(false);
   const [inputs, setInputs] = useState({
     email: null,
@@ -31,6 +32,8 @@ const Signup = ({ setAuth }) => {
       alert('Please fill up all the fields');
     }
   };
+
+  console.log(from)
 
   useEffect(() => {
     inputs?.email && setPassInput(true);
@@ -129,12 +132,12 @@ const Signup = ({ setAuth }) => {
           <p className="text-lg font-semibold text-slate-700">
             Verify check email address by visiting the link in the email.
           </p>
-          <button
+          <Link
             className="bg-blue-600 mt-5 p-2 px-5 rounded-full text-white font-semibold text-md"
-            onClick={() => navigate('/auth/login')}
+            to={'/auth/login'} state={{ from: { pathname: from } }}
           >
             Proceed to Login
-          </button>
+          </Link>
         </div>
       </Modal>
     </div>

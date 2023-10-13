@@ -6,7 +6,7 @@ const Header = ({ auth, setAuth }) => {
   const location = useLocation();
 
   return (
-    <div className="flex justify-between items-center p-2 px-20">
+    <div className="flex justify-between items-center p-2 px-20 border-b-2">
       <div className="relative group m-2 p-2 text-xl text-blue-600 rounded-md hover:text-blue-700">
         <Link to={ auth ? '/dashboard' : '/'} >
           <FontAwesomeIcon icon={icons.home}/>

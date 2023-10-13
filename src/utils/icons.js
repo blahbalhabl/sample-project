@@ -13,6 +13,9 @@ import {
   faPills,
   faX,
   faCheckDouble,
+  faUserDoctor,
+  faChevronRight,
+  faMapLocationDot,
 } from '@fortawesome/free-solid-svg-icons'
 
 // Regular Icons
@@ -39,4 +42,7 @@ export const icons = {
   pills: faPills,
   close: faX,
   doubleCheck: faCheckDouble,
+  doctor: faUserDoctor,
+  right: faChevronRight,
+  location: faMapLocationDot,
 };
