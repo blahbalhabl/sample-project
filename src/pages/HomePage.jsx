@@ -42,7 +42,7 @@ const HomePage = () => {
             <FontAwesomeIcon icon={icons.right} />
           </div>
           <div
-            onClick={() => redirect('/find-locations')}
+            onClick={() => redirect('/hospitals')}
             className='flex items-center bg-blue-600 mx-2 p-5 rounded-md cursor-pointer hover:outline hover:outline-2 hover:outline-blue-600 hover:bg-white hover:text-blue-600'
           >
             <FontAwesomeIcon className='text-2xl' icon={icons.location} />
@@ -50,7 +50,7 @@ const HomePage = () => {
             <FontAwesomeIcon icon={icons.right} />
           </div>
           <div
-            onClick={() => redirect('/schedule-appointment')}
+            onClick={() => redirect('/appointments')}
             className='flex items-center bg-yellow-300 mx-2 p-5 rounded-md text-blue-600 cursor-pointer hover:outline hover:outline-2 hover:outline-yellow-300 hover:bg-white'
           >
             <FontAwesomeIcon className='text-2xl' icon={icons.calendar} />
