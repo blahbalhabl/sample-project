@@ -3,9 +3,10 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../utils/icons";
 import Footer from "../components/Footer"
+import useAuth from "../hooks/useAuth";
 
-const LoginPage = ({ setAuth }) => {
-
+const LoginPage = () => {
+  const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from.pathname || '/dashboard';
@@ -36,13 +37,12 @@ const LoginPage = ({ setAuth }) => {
       }
 
       setAuth(inputs.email);
+      sessionStorage.setItem('auth', inputs.email);
       navigate(from, { replace: true });
     } else {
       alert('Please fill up all the fields');
     }
   };
-
-  console.log(from)
 
   return (
     <div className="h-full">

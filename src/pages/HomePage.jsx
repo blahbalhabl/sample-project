@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { icons } from '../utils/icons';
 import Footer from '../components/Footer';
 import Modal from '../components/Modal';
+import useAuth from '../hooks/useAuth';
 
-const HomePage = ({ auth }) => {
+const HomePage = () => {
+  const { auth } = useAuth(); 
   const navigate = useNavigate();
   const [link, setLink] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

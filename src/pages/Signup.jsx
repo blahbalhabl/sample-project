@@ -33,8 +33,6 @@ const Signup = () => {
     }
   };
 
-  console.log(from)
-
   useEffect(() => {
     inputs?.email && setPassInput(true);
     !inputs?.email && setPassInput(false);

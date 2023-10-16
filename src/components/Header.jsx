@@ -1,9 +1,22 @@
 import { useLocation, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../utils/icons";
+import { useEffect } from "react";
+import useAuth from "../hooks/useAuth";
 
-const Header = ({ auth, setAuth }) => {
+const Header = () => {
+  const { auth, setAuth } = useAuth();
   const location = useLocation();
+
+  const userLogout = () => {
+    setAuth(null);
+    sessionStorage.removeItem('auth');
+  };
+
+  useEffect(() => {
+    const auth = sessionStorage.getItem('auth');
+    auth ? setAuth(auth) : setAuth(null);
+  }, []);
 
   return (
     <div className="flex justify-between items-center p-2 px-20 border-b-2">
@@ -36,7 +49,7 @@ const Header = ({ auth, setAuth }) => {
           <span>{ auth }</span>
           <div
             className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700"
-            onClick={() => setAuth(null)}
+            onClick={userLogout}
             >
             <Link to="/" >
               <FontAwesomeIcon icon={icons.logout} />
