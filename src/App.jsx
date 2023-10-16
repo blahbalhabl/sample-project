@@ -7,6 +7,7 @@ import Signup from "./pages/Signup"
 import Dashboard from "./pages/Dashboard"
 import NotFound from "./pages/NotFound"
 import Doctors from "./pages/Doctors"
+import RequireAuth from "./components/RequireAuth"
 
 const App = () => {
   return (
@@ -18,8 +19,10 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path='/auth/login' element={<LoginPage />} />
             <Route path='/auth/signup' element={<Signup />} />
-            <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/doctors' element={<Doctors />} />
+            <Route element={<RequireAuth />}>
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/doctors' element={<Doctors />} />
+            </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>
         </AuthProvider>

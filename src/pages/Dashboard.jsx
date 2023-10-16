@@ -6,9 +6,9 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const { auth } = useAuth();
 
-  useEffect(() => {
-    !auth ? navigate('/') : null;
-  }, [ auth ]);
+  // useEffect(() => {
+  //   !auth ? navigate('/') : null;
+  // }, [ auth ]);
 
   return (
     <div>
