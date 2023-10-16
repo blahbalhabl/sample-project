@@ -45,8 +45,12 @@ const Header = () => {
         </div>
       )}
       { auth && (
-        <div className="flex h-full items-center"> 
-          <span>{ auth }</span>
+        <div className="flex h-full items-center">
+          <div className="fixed bg-slate-300 rounded-full right-40 p-1 px-3 text-2xl">
+            <p>
+              {auth.charAt(0).toUpperCase()}
+            </p>
+          </div>
           <div
             className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700"
             onClick={userLogout}
