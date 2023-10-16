@@ -3,6 +3,7 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../utils/icons";
 import Footer from "../components/Footer"
+import Modal from "../components/Modal"
 import useAuth from "../hooks/useAuth";
 
 const LoginPage = () => {
@@ -18,6 +19,9 @@ const LoginPage = () => {
     email: null,
     password: null,
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,9 +40,14 @@ const LoginPage = () => {
         localStorage.setItem('password', inputs.password);
       }
 
-      setAuth(inputs.email);
-      sessionStorage.setItem('auth', inputs.email);
-      navigate(from, { replace: true });
+      if(!inputs.email.includes('@gmail.com')) {
+        alert('Please use a valid email address')
+      } else {
+        setAuth(inputs.email);
+        sessionStorage.setItem('auth', inputs.email);
+        navigate(from, { replace: true });
+      }
+      
     } else {
       alert('Please fill up all the fields');
     }
@@ -47,7 +56,7 @@ const LoginPage = () => {
   return (
     <div className="h-full">
       <div className="flex justify-center flex-col items-center bg-slate-200 h-full">
-        <div className="flex items-center flex-col h-max w-1/4 p-5 rounded-lg bg-white text-">
+        <div className="flex items-center flex-col h-max w-1/4 p-5 rounded-lg bg-white">
           <span className="text-xl text-yellow-300 font-extrabold">
             WELCOME BACK
           </span>
@@ -98,7 +107,12 @@ const LoginPage = () => {
                 type="checkbox" />
               <label>Remember me</label>
             </div>
-            <span className="text-blue-600 cursor-pointer hover:text-blue-700 underline decoration-dotted">Forgot Password?</span>
+            <span
+              onClick={() => openModal()}
+              className="text-blue-600 cursor-pointer hover:text-blue-700 underline decoration-dotted"
+              >
+              Forgot Password?
+            </span>
           </div>
           <button 
             className="w-full p-2 m-2 my-10 rounded-xl text-lg text-blue-600 bg-yellow-300 border-solid border-2 border-blue-600 border-b-4 shadow-inner hover:bg-yellow-400"
@@ -116,6 +130,12 @@ const LoginPage = () => {
         </span>
       </div>
       <Footer />
+      <Modal
+        isOpen={isModalOpen}
+        closeModal={closeModal}
+      >
+        Handle Forgot Password UI here
+      </Modal>
     </div>
   )
 }

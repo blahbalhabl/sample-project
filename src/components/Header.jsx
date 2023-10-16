@@ -51,13 +51,10 @@ const Header = () => {
               {auth.charAt(0).toUpperCase()}
             </p>
           </div>
-          <div
-            className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700"
-            onClick={userLogout}
-            >
-            <Link to="/" >
+          <div className="relative group cursor-pointer m-2 p-2 px-3 text-2xl rounded-md text-blue-600 hover:text-blue-700">
+            <span onClick={userLogout}>
               <FontAwesomeIcon icon={icons.logout} />
-            </Link>
+            </span>
             <span className="opacity-0 group-hover:opacity-100 absolute top-2.5 right-5 transform -translate-x-1/2 bg-black text-sm text-white px-2 py-1 rounded-md transition-opacity duration-300">
               Logout
             </span>
