@@ -59,7 +59,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className='flex flex-col flex-wrap w-5/6 mt-20 h-4/6 text-base text-slate-700 font-semibold'>
-          <p className='mb-5 font-bold'>About DHVSU Medical Wesbite</p>
+          <p className='mb-5 font-bold'>About DHVSU Medical Website</p>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus quod quidem cupiditate esse ab veniam? Incidunt ducimus repellendus at dolore unde asperiores modi? Architecto consequatur optio blanditiis ex? Ab, sit, recusandae sequi natus sint, molestiae nesciunt totam magni sed repellat in quam aliquid quasi ipsum sapiente quas. Deserunt, unde minus?!</p>
         </div>
       </div>
