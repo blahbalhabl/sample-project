@@ -8,6 +8,10 @@ import Dashboard from "./pages/Dashboard"
 import NotFound from "./pages/NotFound"
 import Doctors from "./pages/Doctors"
 import RequireAuth from "./components/RequireAuth"
+import Appointments from "./pages/Appointments"
+import Prescriptions from "./pages/Prescriptions"
+import History from "./pages/History"
+import Hospitals from "./pages/Hospitals"
 
 const App = () => {
   return (
@@ -22,6 +26,10 @@ const App = () => {
             <Route element={<RequireAuth />}>
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/doctors' element={<Doctors />} />
+              <Route path='/appointments' element={<Appointments />}/>
+              <Route path='/prescriptions' element={<Prescriptions />}/>
+              <Route path='/history' element={<History />}/>
+              <Route path="/hospitals" element={<Hospitals />} />
             </Route>
             <Route path='*' element={<NotFound />} />
           </Routes>
