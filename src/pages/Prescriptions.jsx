@@ -84,7 +84,7 @@ const Prescriptions = () => {
                   ({selected.company})
                 </p>
                 <h2 className='font-extrabold text-3xl w-max'>
-                  {selected.name}
+                  ({selected.quantity}x) {selected.name} ({selected.dosage})
                 </h2>
                 <p className='text-2xl text-slate-800 w-max mb-2'>
                   {selected.type}
@@ -92,6 +92,19 @@ const Prescriptions = () => {
                 <p className='font-bold text-3xl'>
                   <FontAwesomeIcon icon={icons.peso} /> {selected.price}
                 </p>
+                <p>
+                  Take: {selected.frequency}
+                </p>
+                <p>
+                  Every: {selected.interval}
+                </p>
+                <p>
+                  For: {selected.duration}
+                </p>
+                <button
+                  className='group bg-blue-500 p-2 text-white font-bold rounded-md mt-5 hover:outline hover:outline-2 hover:outline-blue-500 hover:bg-transparent hover:text-black'>
+                  e-Prescription <FontAwesomeIcon className='text-yellow-300 ml-2 group-hover:text-blue-500' icon={icons.download}/>
+                </button>
               </div>
             </div>
               <div className='my-5 p-5 outline outline-1 outline-slate-200 rounded-lg bg-slate-100'>

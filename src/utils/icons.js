@@ -21,6 +21,7 @@ import {
   faChevronLeft,
   faBars,
   faUser,
+  faFileArrowDown,
 } from '@fortawesome/free-solid-svg-icons'
 
 // Regular Icons
@@ -56,4 +57,5 @@ export const icons = {
   peso: faPesoSign,
   burger: faBars,
   profile: faUser,
+  download: faFileArrowDown,
 };
