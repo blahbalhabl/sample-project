@@ -4,7 +4,7 @@ import { icons } from "../utils/icons"
 
 const Footer = () => {
   return (
-    <div className="bottom-0 flex justify-around p-10 px-20 items-center bg-blue-900 h-max text-white">
+    <div className="bottom-0 flex p-10 px-20 items-center bg-blue-900 h-max w-full text-white flex-col sm:justify-around sm:flex-row">
       <div className="mx-2">
         <span className="text-3xl font-thin">
           <FontAwesomeIcon icon={icons.pills }/>

@@ -17,11 +17,14 @@ import {
   faChevronRight,
   faMapLocationDot,
   faNotesMedical,
+  faPesoSign,
+  faChevronLeft,
+  faBars,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons'
 
 // Regular Icons
 import {
-  faUser,
   faEnvelope,
   faCalendar,
   faHospital,
@@ -46,7 +49,11 @@ export const icons = {
   doubleCheck: faCheckDouble,
   doctor: faUserDoctor,
   right: faChevronRight,
+  left: faChevronLeft,
   location: faMapLocationDot,
   medical: faNotesMedical,
   hospital: faHospital,
+  peso: faPesoSign,
+  burger: faBars,
+  profile: faUser,
 };
