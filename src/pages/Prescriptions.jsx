@@ -111,6 +111,10 @@ const Prescriptions = () => {
                 <h3 className='font-bold mb-5'>Product Description:</h3>
                 <p>{selected.description}</p>
               </div>
+              <div className='my-5 p-5 outline outline-1 outline-slate-200 rounded-lg bg-slate-100'>
+                <h3 className='font-bold mb-5'>Possible Side-Effects:</h3>
+                <p>{ selected?.sideEffects || 'N/A' }</p>
+              </div>
           </div>
         ) 
         : 
