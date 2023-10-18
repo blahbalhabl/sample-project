@@ -46,13 +46,18 @@ const Prescriptions = () => {
           <div 
             key={i}
             className='flex flex-col justify-start rounded-lg shadow-xl w-full mb-10 sm:w-60'
-            onClick={() => handleClick(drug)}
           >
             <img src={drug.photos[0]} alt={drug.name} />
-            <span className='p-5'>
+            <span className='p-5 flex flex-col gap-2'>
               <p className='font-bold'>{drug.name}, {drug.for}, {drug.mode}</p>
               <p className='text-slate-700 font-base'><FontAwesomeIcon icon={icons.peso}/>{drug.price}</p>
               <p>{drug.company}</p>
+              <button 
+                onClick={() => handleClick(drug)} 
+                className='text-white mx-auto p-2 rounded-md cursor-pointer bg-blue-600 hover:outline hover:outline-2 hover:outline-blue-600 hover:bg-transparent hover:text-black'
+              >
+                View Details
+              </button>
             </span>
         </div>
         ))}
