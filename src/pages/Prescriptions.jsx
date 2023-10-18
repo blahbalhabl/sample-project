@@ -113,7 +113,11 @@ const Prescriptions = () => {
               </div>
               <div className='my-5 p-5 outline outline-1 outline-slate-200 rounded-lg bg-slate-100'>
                 <h3 className='font-bold mb-5'>Possible Side-Effects:</h3>
-                <p>{ selected?.sideEffects || 'N/A' }</p>
+                <ul>
+                  { selected?.sideEffects.map((side, i) => (
+                    <li key={i}>{side}</li>
+                  )) || (<li>N/A</li>)}
+                </ul>
               </div>
           </div>
         ) 
